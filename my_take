@@ -1,0 +1,51 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE genre (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+
+INSERT INTO genre (name) VALUES ("pop");
+INSERT INTO genre (name) VALUES ("r&b/soul");
+INSERT INTO genre (name) VALUES ("reggae/dancehall");
+
+
+CREATE TABLE artiste (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+
+INSERT INTO artiste (name) VALUES ("Rihanna");
+INSERT INTO artiste (name) VALUES ("Ariana Grande");
+INSERT INTO artiste (name) VALUES ("Future");
+INSERT INTO artiste (name) VALUES ("J Capri");
+INSERT INTO artiste (name) VALUES ("Konshens");
+
+
+CREATE TABLE songs (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+artiste_id INTEGER,
+genre_id INTEGER);
+
+INSERT INTO songs (name, artiste_id, genre_id) VALUES ("Loveeeeeee Song ft. Future", 1, 2);
+INSERT INTO songs (name, artiste_id, genre_id) VALUES ("Everyday ft. Future", 2, 1);
+INSERT INTO songs (name, artiste_id, genre_id) VALUES ("Pull Up To Mi Bumpa ft. Konshens", 4, 3);
+INSERT INTO songs (name, artiste_id, genre_id) VALUES ("Man Down", 1, 2);
+INSERT INTO songs (name, artiste_id, genre_id) VALUES ("Dangerous Woman", 2, 1);
+INSERT INTO songs (name, artiste_id, genre_id) VALUES ("Likkle", 4, 3);
+INSERT INTO songs (name, artiste_id, genre_id) VALUES ("Winner", 5, 3);
+
+
+SELECT * FROM genre;
+SELECT * FROM artiste;
+SELECT * FROM songs;
+
+SELECT songs.name AS Song, artiste.name AS Artiste, genre.name AS Genre
+FROM songs
+    JOIN artiste
+    ON songs.artiste_id = artiste.id
+    JOIN genre
+    ON songs.genre_id = genre.id;
+
+SELECT name
+FROM songs
+WHERE name LIKE '%ft.%';
+
+SELECT name
+FROM songs
+WHERE name NOT LIKE '%ft.%';
