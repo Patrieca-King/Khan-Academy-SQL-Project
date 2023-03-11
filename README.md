@@ -1,0 +1,1 @@
+I'm revisiting SQL this month, this time with Khan Academy. I'm now on Lesson 3 and the point of this lesson's project is to create tables that relate to each other and perform joins to show their relation in human readable format. This was my attempt. 
